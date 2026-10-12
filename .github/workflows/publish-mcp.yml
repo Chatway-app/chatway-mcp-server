@@ -4,6 +4,11 @@ on:
   push:
     tags: ["v*"] # e.g. v1.0.0 — must match "version" in server.json
 
+env:
+  # Pinned mcp-publisher release (linux_amd64). Update both values together, in validate.yml too.
+  MCP_PUBLISHER_VERSION: v1.8.1
+  MCP_PUBLISHER_SHA256: a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -26,7 +31,9 @@ jobs:
 
       - name: Install mcp-publisher
         run: |
-          curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+          curl -fsSL -o mcp-publisher.tar.gz "https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}/mcp-publisher_linux_amd64.tar.gz"
+          echo "${MCP_PUBLISHER_SHA256}  mcp-publisher.tar.gz" | sha256sum -c -
+          tar xzf mcp-publisher.tar.gz mcp-publisher
 
       - name: Validate server.json
         run: ./mcp-publisher validate
@@ -39,4 +46,10 @@ jobs:
 
       - name: Verify listing
         run: |
-          curl -s "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.Chatway-app/chatway" | jq .
+          NAME="$(jq -r .name server.json)"
+          VERSION="$(jq -r .version server.json)"
+          RESULT="$(curl -fsS --max-time 60 --retry 3 "https://registry.modelcontextprotocol.io/v0.1/servers?search=${NAME}&version=${VERSION}")"
+          echo "$RESULT" | jq .
+          echo "$RESULT" | jq -e --arg n "$NAME" --arg v "$VERSION" \
+            '[.servers[].server | select(.name == $n and .version == $v)] | length > 0' > /dev/null \
+            || { echo "Published $NAME@$VERSION not found in the registry"; exit 1; }
