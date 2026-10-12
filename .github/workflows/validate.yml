@@ -53,3 +53,31 @@ jobs:
             echo "contextFileName $CONTEXT_FILE does not exist"
             exit 1
           fi
+
+  cursor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate .cursor-plugin/plugin.json
+        run: |
+          MANIFEST=.cursor-plugin/plugin.json
+          jq -e '
+            (.name | test("^[a-z0-9]([a-z0-9.-]*[a-z0-9])?$")) and
+            (.description | type == "string" and length > 0) and
+            (.mcpServers.chatway.url == "https://mcp.chatway.app/mcp")
+          ' "$MANIFEST" > /dev/null \
+            || { echo "$MANIFEST is missing required fields or the production endpoint"; exit 1; }
+
+          LOGO="$(jq -r '.logo // empty' "$MANIFEST")"
+          case "$LOGO" in /*|*..*) echo "logo path must be relative without .."; exit 1;; esac
+          if [ -n "$LOGO" ] && [ ! -f "$LOGO" ]; then echo "logo $LOGO does not exist"; exit 1; fi
+
+          for rule in rules/*.mdc; do
+            head -1 "$rule" | grep -q '^---$' || { echo "$rule is missing frontmatter"; exit 1; }
+            grep -q '^description:' "$rule" || { echo "$rule is missing a description"; exit 1; }
+          done

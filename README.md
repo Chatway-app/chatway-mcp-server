@@ -27,9 +27,10 @@ Chatway inbox. Search conversations, respond to customers, manage support ticket
 add private notes, and update contacts using natural language.
 
 This repository holds Chatway's public listings for the
-[official MCP Registry](https://registry.modelcontextprotocol.io) and the
-[Gemini CLI extension gallery](https://geminicli.com/extensions/browse/): manifests, logos, and
-the publishing workflow. **It does not contain server source code or secrets**; the server
+[official MCP Registry](https://registry.modelcontextprotocol.io), the
+[Gemini CLI extension gallery](https://geminicli.com/extensions/browse/), and the
+[Cursor Marketplace](https://cursor.com/marketplace): manifests, logos, and the publishing
+workflow. **It does not contain server source code or secrets**; the server
 itself is hosted by Chatway.
 
 | | |
@@ -84,6 +85,29 @@ shows the `chatway` server and its tools.
 - **Browser sign-in doesn't complete:** Gemini CLI receives the OAuth callback on `localhost`, so
   sign in on the same machine where Gemini CLI is running.
 
+## Cursor plugin
+
+Install the **Chatway** plugin from the [Cursor Marketplace](https://cursor.com/marketplace).
+The plugin adds the Chatway MCP server and a Chatway rule that guides the agent to confirm before
+sending replies or making destructive changes.
+
+1. Install the plugin, then open **Cursor Settings → MCP** (or **Tools & MCP**).
+2. Next to the `chatway` server, click **Connect** (or **Needs login**). A browser window opens to
+   sign in to Chatway and approve access.
+3. Once connected, the Chatway tools are listed under the server and available to the agent.
+
+Ask the agent, for example: "Show my latest unresolved Chatway conversations."
+
+**Troubleshooting**
+
+- **Tools missing or authentication errors:** reconnect the `chatway` server from Cursor's MCP
+  settings. Tokens are revoked when the connection is disconnected in Chatway.
+- **Can't approve access:** only Chatway workspace owners and admins can connect an assistant.
+- **Two `chatway` servers:** if you previously added Chatway manually in `~/.cursor/mcp.json`,
+  remove that entry so only the plugin's server is used.
+- **A tool isn't available:** that permission wasn't granted. Change permissions under
+  **AI → External AI** in Chatway, or reconnect.
+
 ## Example prompts
 
 - "Show my latest unresolved Chatway conversations."
@@ -132,8 +156,10 @@ this license. The hosted Chatway service and MCP server are proprietary.
 server.json                          MCP Registry manifest
 gemini-extension.json                Gemini CLI extension manifest (must stay at the repo root)
 GEMINI.md                            Context loaded by Gemini CLI for the extension
+.cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
+rules/chatway.mdc                    Cursor rule loaded by the plugin
 assets/                              Chatway logos used by listings
-.github/workflows/validate.yml       Validates server.json and gemini-extension.json on pull requests
+.github/workflows/validate.yml       Validates server.json, gemini-extension.json and the Cursor plugin on pull requests
 .github/workflows/publish-mcp.yml    Publishes server.json to the MCP Registry on version tags
 ```
 
@@ -171,11 +197,26 @@ Gemini CLI installs from the repository's default branch (`main`) and prompts us
 [geminicli.com/extensions](https://geminicli.com/extensions/browse/) indexes repos with the
 `gemini-cli-extension` topic daily.
 
+> **Do not create GitHub Releases in this repository.** Gemini CLI installs the latest GitHub
+> Release instead of `main` when one exists, so a release would pin users to an old snapshot.
+> Version tags (`v*`) for the MCP Registry are fine; they are tags, not releases.
+
 To test changes locally before merging:
 
 ```bash
 gemini extensions link .
 ```
+
+### Cursor plugin updates
+
+The Cursor Marketplace is curated: the plugin is submitted once at
+[cursor.com/marketplace/publish](https://cursor.com/marketplace/publish) and reviewed by Cursor.
+Bump `version` in `.cursor-plugin/plugin.json` for user-visible changes and keep every path in
+the manifest relative. Cursor manages how listed plugins pick up new versions; check its plugin
+docs or the publisher dashboard after merging changes to `main`.
+
+To test locally, copy this folder (not a symlink) to `~/.cursor/plugins/local/chatway`, then run
+**Developer: Reload Window** in Cursor.
 
 ### Verify
 
