@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Chatway-app/chatway",
+  "title": "Chatway Live Chat",
+  "description": "Connect AI agents to Chatway to manage customer conversations, support tickets, and contacts.",
+  "version": "1.0.0",
+  "websiteUrl": "https://chatway.app",
+  "repository": {
+    "url": "https://github.com/Chatway-app/chatway-mcp-server",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/Chatway-app/chatway-mcp-server/main/assets/chatway-logo.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Chatway-app/chatway-mcp-server/main/assets/chatway-logo.png",
+      "mimeType": "image/png",
+      "sizes": ["500x501"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.chatway.app/mcp"
+    }
+  ]
+}

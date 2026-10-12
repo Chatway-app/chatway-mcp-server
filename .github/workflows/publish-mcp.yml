@@ -1,0 +1,42 @@
+name: Publish to MCP Registry
+
+on:
+  push:
+    tags: ["v*"] # e.g. v1.0.0 — must match "version" in server.json
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # GitHub OIDC login, grants the io.github.Chatway-app/* namespace
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Check tag matches server.json version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          FILE_VERSION="$(jq -r .version server.json)"
+          if [ "$TAG_VERSION" != "$FILE_VERSION" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match server.json version $FILE_VERSION"
+            exit 1
+          fi
+
+      - name: Install mcp-publisher
+        run: |
+          curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+
+      - name: Validate server.json
+        run: ./mcp-publisher validate
+
+      - name: Authenticate to MCP Registry
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish to MCP Registry
+        run: ./mcp-publisher publish
+
+      - name: Verify listing
+        run: |
+          curl -s "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.Chatway-app/chatway" | jq .

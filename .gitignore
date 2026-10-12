@@ -1,0 +1,10 @@
+# mcp-publisher binary and local login tokens
+mcp-publisher
+.mcpregistry_*
+
+# Never commit keys or secrets
+*.pem
+.env
+
+# macOS
+.DS_Store
