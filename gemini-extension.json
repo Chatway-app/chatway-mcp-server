@@ -1,0 +1,11 @@
+{
+  "name": "chatway",
+  "version": "1.0.0",
+  "description": "Connect ChatGPT, Claude & AI agents to Chatway live chat to reply to customers and manage tickets",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "chatway": {
+      "httpUrl": "https://mcp.chatway.app/mcp"
+    }
+  }
+}
