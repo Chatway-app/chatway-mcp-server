@@ -17,9 +17,14 @@
 
 ---
 
-Chatway's hosted MCP server lets assistants like Claude, ChatGPT, Cursor, and other MCP
-clients work inside your Chatway inbox: read and search conversations, reply to customers,
-add notes, assign teammates, resolve conversations, and keep contacts up to date.
+[Chatway Live Chat](https://chatway.app) is an AI-powered customer support platform that helps
+businesses communicate with website visitors and customers through live chat, AI chatbots,
+WhatsApp, Facebook Messenger, Instagram, and more. It offers a shared team inbox, automation,
+knowledge base, and mobile apps for iOS and Android.
+
+Chatway's MCP server connects ChatGPT, Claude, Cursor, and other AI agents directly to your
+Chatway inbox. Search conversations, respond to customers, manage support tickets, assign agents,
+add private notes, and update contacts using natural language.
 
 This repository holds Chatway's public listing for the
 [official MCP Registry](https://registry.modelcontextprotocol.io): the `server.json` manifest,
