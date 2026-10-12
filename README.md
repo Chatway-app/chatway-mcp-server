@@ -26,10 +26,11 @@ Chatway's MCP server connects ChatGPT, Claude, Cursor, and other AI agents direc
 Chatway inbox. Search conversations, respond to customers, manage support tickets, assign agents,
 add private notes, and update contacts using natural language.
 
-This repository holds Chatway's public listing for the
-[official MCP Registry](https://registry.modelcontextprotocol.io): the `server.json` manifest,
-logos, and the publishing workflow. **It does not contain server source code or secrets**;
-the server itself is hosted by Chatway.
+This repository holds Chatway's public listings for the
+[official MCP Registry](https://registry.modelcontextprotocol.io) and the
+[Gemini CLI extension gallery](https://geminicli.com/extensions/browse/): manifests, logos, and
+the publishing workflow. **It does not contain server source code or secrets**; the server
+itself is hosted by Chatway.
 
 | | |
 |---|---|
@@ -49,6 +50,39 @@ the server itself is hosted by Chatway.
 Step-by-step instructions for Claude, ChatGPT, Codex, Gemini, Cursor, VS Code, Grok, Devin,
 Cline, Goose, OpenCode, and any other MCP client:
 [Connect clients](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
+
+## Gemini CLI extension
+
+Install the Chatway extension in [Gemini CLI](https://github.com/google-gemini/gemini-cli):
+
+```bash
+gemini extensions install https://github.com/Chatway-app/chatway-mcp-server
+```
+
+Then start `gemini` and sign in to Chatway:
+
+```
+/mcp auth chatway
+```
+
+A browser window opens to sign in to Chatway and approve access. Once connected, `/mcp list`
+shows the `chatway` server and its tools.
+
+| Task | Command |
+|---|---|
+| Update | `gemini extensions update chatway` |
+| Uninstall | `gemini extensions uninstall chatway` |
+| Re-authenticate | `/mcp auth chatway` |
+
+**Troubleshooting**
+
+- **Tools missing or `401` errors:** run `/mcp auth chatway` again. Tokens are revoked when the
+  connection is disconnected in Chatway.
+- **Can't approve access:** only Chatway workspace owners and admins can connect an assistant.
+- **A tool isn't available:** that permission wasn't granted. Change permissions under
+  **AI → External AI** in Chatway, or reconnect.
+- **Browser sign-in doesn't complete:** Gemini CLI receives the OAuth callback on `localhost`, so
+  sign in on the same machine where Gemini CLI is running.
 
 ## Example prompts
 
@@ -90,6 +124,8 @@ live chat on [chatway.app](https://chatway.app).
 
 ```
 server.json                          MCP Registry manifest
+gemini-extension.json                Gemini CLI extension manifest (must stay at the repo root)
+GEMINI.md                            Context loaded by Gemini CLI for the extension
 assets/                              Chatway logos used by listings
 .github/workflows/validate.yml       Validates server.json on pull requests
 .github/workflows/publish-mcp.yml    Publishes server.json to the MCP Registry on version tags
@@ -120,6 +156,20 @@ Published versions are immutable, so every change needs a new version.
    logs in via OIDC, publishes, and fails if the new version isn't returned by the registry.
 
 To update the pinned `mcp-publisher` version, change `MCP_PUBLISHER_VERSION` in both workflows.
+
+### Gemini CLI extension updates
+
+Gemini CLI installs from the repository's default branch (`main`) and prompts users to update when
+`main` gets new commits, so merging to `main` releases the extension. Bump `version` in
+`gemini-extension.json` for user-visible changes. The gallery at
+[geminicli.com/extensions](https://geminicli.com/extensions/browse/) indexes repos with the
+`gemini-cli-extension` topic daily.
+
+To test changes locally before merging:
+
+```bash
+gemini extensions link .
+```
 
 ### Verify
 
