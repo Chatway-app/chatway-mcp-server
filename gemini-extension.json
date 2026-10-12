@@ -1,7 +1,7 @@
 {
   "name": "chatway",
-  "version": "1.0.0",
-  "description": "Connect ChatGPT, Claude & AI agents to Chatway live chat to reply to customers and manage tickets",
+  "version": "1.0.1",
+  "description": "Connect Gemini CLI to Chatway Live Chat to manage customer support conversations, answer tickets, search your knowledge base, and organize your team inbox.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "chatway": {

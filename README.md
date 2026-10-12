@@ -127,7 +127,7 @@ server.json                          MCP Registry manifest
 gemini-extension.json                Gemini CLI extension manifest (must stay at the repo root)
 GEMINI.md                            Context loaded by Gemini CLI for the extension
 assets/                              Chatway logos used by listings
-.github/workflows/validate.yml       Validates server.json on pull requests
+.github/workflows/validate.yml       Validates server.json and gemini-extension.json on pull requests
 .github/workflows/publish-mcp.yml    Publishes server.json to the MCP Registry on version tags
 ```
 
@@ -146,7 +146,7 @@ Published versions are immutable, so every change needs a new version.
 
 1. Edit `server.json` and bump `version` (e.g. `1.0.0` → `1.0.1`). Listing copy (title,
    description, icons) must be approved by marketing first.
-2. Open a pull request; the **Validate server.json** check must pass.
+2. Open a pull request; the **Validate manifests** check must pass.
 3. Merge to `main`, then tag the same version and push the tag:
    ```bash
    git tag v1.0.1

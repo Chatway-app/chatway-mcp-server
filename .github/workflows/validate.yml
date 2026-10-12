@@ -1,4 +1,4 @@
-name: Validate server.json
+name: Validate manifests
 
 on:
   pull_request:
@@ -28,3 +28,28 @@ jobs:
 
       - name: Validate server.json
         run: ./mcp-publisher validate
+
+  gemini:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate gemini-extension.json
+        run: |
+          jq -e '
+            (.name | test("^[a-z0-9-]+$")) and
+            (.version | type == "string" and length > 0) and
+            (.description | type == "string" and length > 0) and
+            (.mcpServers.chatway.httpUrl == "https://mcp.chatway.app/mcp")
+          ' gemini-extension.json > /dev/null \
+            || { echo "gemini-extension.json is missing required fields or the production endpoint"; exit 1; }
+
+          CONTEXT_FILE="$(jq -r '.contextFileName // empty' gemini-extension.json)"
+          if [ -n "$CONTEXT_FILE" ] && [ ! -f "$CONTEXT_FILE" ]; then
+            echo "contextFileName $CONTEXT_FILE does not exist"
+            exit 1
+          fi
