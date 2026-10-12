@@ -116,6 +116,12 @@ Details: [Permissions & access](https://developers.chatway.app/mcp/guides.mcp_pe
 Visit the [Chatway Help Center](https://chatway.app/help) or contact the support team through
 live chat on [chatway.app](https://chatway.app).
 
+## License
+
+The manifests, configuration, and documentation in this repository are available under the
+[MIT License](LICENSE). The Chatway name and logos are trademarks of Chatway and are not covered by
+this license. The hosted Chatway service and MCP server are proprietary.
+
 ---
 
 ## Maintaining this listing
