@@ -28,9 +28,10 @@ add private notes, and update contacts using natural language.
 
 This repository holds Chatway's public listings for the
 [official MCP Registry](https://registry.modelcontextprotocol.io), the
-[Gemini CLI extension gallery](https://geminicli.com/extensions/browse/), and the
-[Cursor Marketplace](https://cursor.com/marketplace): manifests, logos, and the publishing
-workflow. **It does not contain server source code or secrets**; the server
+[Gemini CLI extension gallery](https://geminicli.com/extensions/browse/), the
+[Cursor Marketplace](https://cursor.com/marketplace), and the
+[Cline MCP Marketplace](https://github.com/cline/mcp-marketplace): manifests, logos, setup
+guides, and the publishing workflow. **It does not contain server source code or secrets**; the server
 itself is hosted by Chatway.
 
 | | |
@@ -108,6 +109,30 @@ Ask the agent, for example: "Show my latest unresolved Chatway conversations."
 - **A tool isn't available:** that permission wasn't granted. Change permissions under
   **AI → External AI** in Chatway, or reconnect.
 
+## Cline
+
+Ask Cline: "Set up the Chatway MCP server from https://github.com/Chatway-app/chatway-mcp-server".
+Cline follows [llms-install.md](llms-install.md) to add the server.
+
+To add it yourself in the Cline extension, open **MCP Servers → Remote Servers**, enter `chatway`
+as the name, paste `https://mcp.chatway.app/mcp`, choose **Streamable HTTP**, click **Add Server**,
+and sign in to Chatway when prompted. Or add this to Cline's MCP settings JSON:
+
+```json
+{
+  "mcpServers": {
+    "chatway": {
+      "type": "streamableHttp",
+      "url": "https://mcp.chatway.app/mcp",
+      "disabled": false
+    }
+  }
+}
+```
+
+`"type": "streamableHttp"` is required. Without it, Cline uses the legacy SSE transport and the
+connection fails with HTTP `400`. There is no API key; you sign in with your Chatway account.
+
 ## Example prompts
 
 - "Show my latest unresolved Chatway conversations."
@@ -158,6 +183,7 @@ gemini-extension.json                Gemini CLI extension manifest (must stay at
 GEMINI.md                            Context loaded by Gemini CLI for the extension
 .cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
 rules/chatway.mdc                    Cursor rule loaded by the plugin
+llms-install.md                      Setup guide for AI agents such as Cline
 assets/                              Chatway logos used by listings
 .github/workflows/validate.yml       Validates server.json, gemini-extension.json and the Cursor plugin on pull requests
 .github/workflows/publish-mcp.yml    Publishes server.json to the MCP Registry on version tags

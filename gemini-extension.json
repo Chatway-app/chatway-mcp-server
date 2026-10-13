@@ -1,6 +1,6 @@
 {
   "name": "chatway",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Connect Gemini CLI to Chatway Live Chat to manage customer support conversations, answer tickets, search your knowledge base, and organize your team inbox.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
