@@ -15,8 +15,6 @@
   <a href="https://chatway.app">chatway.app</a>
 </p>
 
-[![MCP Badge](https://lobehub.com/badge/mcp/chatway-app-chatway-mcp-server)](https://lobehub.com/mcp/chatway-app-chatway-mcp-server)
-
 ---
 
 [Chatway Live Chat](https://chatway.app) is an AI-powered customer support platform that helps
