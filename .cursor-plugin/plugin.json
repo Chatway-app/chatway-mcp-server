@@ -1,6 +1,6 @@
 {
   "name": "chatway",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Connect Cursor to Chatway Live Chat to manage customer support conversations, answer tickets, search your knowledge base, and organize your team inbox.",
   "author": {
     "name": "Chatway"
@@ -8,7 +8,13 @@
   "homepage": "https://chatway.app",
   "repository": "https://github.com/Chatway-app/chatway-mcp-server",
   "license": "MIT",
-  "keywords": ["chatway", "live-chat", "customer-support", "helpdesk", "mcp"],
+  "keywords": [
+    "chatway",
+    "live-chat",
+    "customer-support",
+    "helpdesk",
+    "mcp"
+  ],
   "logo": "assets/chatway-logo.svg",
   "mcpServers": {
     "chatway": {
