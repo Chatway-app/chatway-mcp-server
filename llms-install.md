@@ -19,8 +19,12 @@ server entry to the MCP client's configuration. The user then signs in to Chatwa
 
 ## Setup steps
 
-1. Open the MCP settings file for this client (for Cline, the MCP settings JSON opened from
-   **MCP Servers → Configure MCP Servers**; for the Cline CLI, `~/.cline/mcp.json`).
+1. Open the MCP settings file for this client:
+   - **Cline extension (VS Code and other editors):** open **MCP Servers → Configure MCP Servers**,
+     which opens `cline_mcp_settings.json` (on macOS with VS Code:
+     `~/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json`).
+   - **Cline CLI:** `~/.cline/data/settings/cline_mcp_settings.json` (or under `$CLINE_DIR` if that
+     variable is set). `cline mcp add` writes to the same file.
 2. Add the `chatway` entry under `mcpServers`. Keep any existing servers unchanged.
 
    ```json
