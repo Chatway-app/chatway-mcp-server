@@ -49,7 +49,7 @@ itself is hosted by Chatway.
 2. Sign in to Chatway when prompted and choose the widgets, channels, and permissions to share.
 3. Ask your assistant to do something in Chatway.
 
-Step-by-step instructions for Claude, ChatGPT, Codex, Gemini, Cursor, VS Code, Grok, Devin,
+Step-by-step instructions for Claude, ChatGPT, Codex, Gemini, Cursor, GitHub Copilot (VS Code), Grok, Devin,
 Cline, Goose, OpenCode, and any other MCP client:
 [Connect clients](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
 
@@ -132,6 +132,39 @@ and sign in to Chatway when prompted. Or add this to Cline's MCP settings JSON:
 
 `"type": "streamableHttp"` is required. Without it, Cline uses the legacy SSE transport and the
 connection fails with HTTP `400`. There is no API key; you sign in with your Chatway account.
+
+## GitHub Copilot (VS Code)
+
+Chatway works with GitHub Copilot Chat in VS Code in **Agent** mode.
+
+1. Open the Command Palette (`Cmd/Ctrl + Shift + P`) and run **MCP: Add Server**.
+2. Choose **HTTP**, then **Workspace** or **Global**.
+3. Paste `https://mcp.chatway.app/mcp` and name the server `chatway`.
+4. Trust the server when VS Code asks, then sign in to Chatway in the browser window that opens.
+5. In Copilot Chat, switch to **Agent** mode. The Chatway tools appear in the tools picker.
+
+Or add it to `mcp.json` yourself (`.vscode/mcp.json` for a workspace, or **MCP: Open User
+Configuration** for all workspaces):
+
+```json
+{
+  "servers": {
+    "chatway": {
+      "type": "http",
+      "url": "https://mcp.chatway.app/mcp"
+    }
+  }
+}
+```
+
+The root key is `servers` (not `mcpServers`), and `"type": "http"` is required. Run
+**MCP: List Servers** to confirm Chatway is running.
+
+To disconnect, remove the server in VS Code and revoke it in Chatway under **AI → External AI**.
+
+> **One-click install from the GitHub MCP Registry** (searching `@mcp Chatway` in VS Code
+> Extensions) will be available once Chatway is accepted into the curated
+> [GitHub MCP Registry](https://github.com/mcp). Until then, use the steps above.
 
 ## Example prompts
 
