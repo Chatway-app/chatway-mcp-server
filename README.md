@@ -17,9 +17,7 @@
 </p>
 
 ---
-<img width="1280" height="800" alt="chatway-chatgpt-mcp" src="https://github.com/user-attachments/assets/15a37d11-47e8-4ebd-bde7-009d1822b3b1" />
 
----
 The Chatway MCP server connects AI agents to your Chatway inbox over the
 [Model Context Protocol](https://modelcontextprotocol.io). Ask your assistant to find
 conversations, summarize customer issues, reply to customers, assign agents, add private notes,
@@ -41,6 +39,9 @@ automation, knowledge base, and mobile apps for iOS and Android.
 | Plans | All plans, including Free (tag and custom data tools require a paid plan) |
 | Registry name | `io.github.Chatway-app/chatway` |
 
+<img width="1280" height="800" alt="chatway-chatgpt-mcp" src="https://github.com/user-attachments/assets/15a37d11-47e8-4ebd-bde7-009d1822b3b1" />
+
+---
 ## Quick start
 
 1. [Create a free Chatway account](https://go.chatway.app/register) if you don't have one.
