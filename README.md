@@ -18,6 +18,7 @@
 
 ---
 <img width="1280" height="800" alt="chatway-chatgpt-mcp" src="https://github.com/user-attachments/assets/15a37d11-47e8-4ebd-bde7-009d1822b3b1" />
+
 ---
 The Chatway MCP server connects AI agents to your Chatway inbox over the
 [Model Context Protocol](https://modelcontextprotocol.io). Ask your assistant to find
