@@ -42,7 +42,7 @@ automation, knowledge base, and mobile apps for iOS and Android.
 | Registry name | `io.github.Chatway-app/chatway` |
 
 <p align="center">
-  <img width="1280" height="800" alt="ChatGPT connected to Chatway through the Chatway MCP server, managing live chat conversations" src="https://github.com/user-attachments/assets/15a37d11-47e8-4ebd-bde7-009d1822b3b1" />
+  <img width="1280" height="800" alt="ChatGPT connected to Chatway through the Chatway MCP server, managing live chat conversations" src="https://github.com/user-attachments/assets/cf8e4e15-13d4-4c8f-a61e-0b6dc6e2db69" />
 </p>
 
 <p align="center"><em>
