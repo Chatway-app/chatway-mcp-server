@@ -13,7 +13,7 @@
   <a href="https://go.chatway.app/register"><strong>Create a free Chatway account</strong></a> ·
   <a href="https://developers.chatway.app/mcp/guides.mcp_connect_clients">Setup guides</a> ·
   <a href="https://developers.chatway.app/mcp/guides.mcp_overview">Documentation</a> ·
-  <a href="https://registry.modelcontextprotocol.io/?q=io.github.Chatway-app%2Fchatway">MCP Registry</a>
+  <a href="https://registry.modelcontextprotocol.io/v0.1/servers/io.github.Chatway-app%2Fchatway/versions/latest">Chatway on the Official MCP Registry</a>
 </p>
 
 ---
