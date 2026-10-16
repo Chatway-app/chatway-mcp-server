@@ -65,8 +65,8 @@ on the permissions the user granted.
 | Replies and notes | `send-message`, `add-note`, `handoff-to-human` |
 | Workflow | `assign-conversation`, `resolve-conversation`, `unresolve-conversation`, `list-agents` |
 | Contacts | `get-visitor`, `search-contacts` |
-| Tags | `view-tags`, `add-tag`, `remove-tag` |
-| Custom data | `view-custom-fields`, `add-custom-data`, `update-custom-data`, `remove-custom-data` |
+| Tags | `list-tags`, `add-tag`, `remove-tag` |
+| Custom data | `list-custom-fields`, `add-custom-data`, `update-custom-data`, `remove-custom-data` |
 | Knowledge base | `search-knowledge-base` |
 
 Tags and custom data tools require a paid Chatway plan. Full reference:
