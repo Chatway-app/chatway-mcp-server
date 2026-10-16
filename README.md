@@ -21,7 +21,9 @@
 The Chatway MCP server connects AI agents to your Chatway inbox over the
 [Model Context Protocol](https://modelcontextprotocol.io). Ask your assistant to find
 conversations, summarize customer issues, reply to customers, assign agents, add private notes,
-search your knowledge base, and organize contacts, all in plain language.
+search your knowledge base, and organize contacts, all in plain language. Pair it with
+[Chatway webhooks](#real-time-events-with-webhooks) to trigger your agents and workflows the moment
+a new message or event happens.
 
 **Available on every Chatway plan, including Free.** There is nothing to install or host and no
 API key to manage: add the server URL to your AI client and sign in with your Chatway account.
@@ -39,9 +41,17 @@ automation, knowledge base, and mobile apps for iOS and Android.
 | Plans | All plans, including Free (tag and custom data tools require a paid plan) |
 | Registry name | `io.github.Chatway-app/chatway` |
 
-<img width="1280" height="800" alt="chatway-chatgpt-mcp" src="https://github.com/user-attachments/assets/15a37d11-47e8-4ebd-bde7-009d1822b3b1" />
+<p align="center">
+  <img width="1280" height="800" alt="ChatGPT connected to Chatway through the Chatway MCP server, managing live chat conversations" src="https://github.com/user-attachments/assets/15a37d11-47e8-4ebd-bde7-009d1822b3b1" />
+</p>
 
----
+<p align="center"><em>
+  Chatway MCP in action: Connect ChatGPT and other AI agents to your website live chat to manage
+  customer conversations, reply to messages, and access your knowledge base. Use webhooks to
+  trigger real-time workflows when new messages or events occur, allowing your AI agents to respond
+  faster and automate customer support without constantly checking for updates.
+</em></p>
+
 ## Quick start
 
 1. [Create a free Chatway account](https://go.chatway.app/register) if you don't have one.
@@ -79,6 +89,17 @@ for each client.
 
 See the [tool reference](https://developers.chatway.app/mcp/guides.mcp_tool_reference) for
 every tool and its parameters.
+
+## Real-time events with webhooks
+
+MCP lets your agent act in Chatway when you ask it to. [Chatway webhooks](https://developers.chatway.app/webhooks/guides.webhooks_overview)
+work the other way: Chatway sends a signed HTTPS request to your endpoint as soon as something
+happens, such as a new visitor message, a new conversation, or a new contact. Use webhooks to wake
+up your AI agent or automation (n8n, Zapier, Make, or your own server) instead of polling, then let
+it read and reply through MCP or the [Chatway API](https://developers.chatway.app).
+
+Webhooks are available on all plans, including Free. Set them up in Chatway under
+**Settings → Developer Tools → Webhooks**.
 
 ## Example prompts
 
