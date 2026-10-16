@@ -65,6 +65,8 @@ automation, knowledge base, and mobile apps for iOS and Android.
 
 | Client | Setup |
 |---|---|
+| ChatGPT | [Connect ChatGPT](#chatgpt) |
+| Claude | [Connect Claude](#claude) |
 | Gemini CLI | [Install the extension](#gemini-cli) |
 | Cursor | [Install the plugin](#cursor) |
 | GitHub Copilot (VS Code) | [Add the server](#github-copilot-vs-code) |
@@ -72,7 +74,7 @@ automation, knowledge base, and mobile apps for iOS and Android.
 
 **Works with any client that supports remote MCP servers with OAuth**
 
-Claude, ChatGPT, Codex, Grok, Devin, Goose, OpenCode, and others. See the
+Codex, Grok, Devin, Goose, OpenCode, and others. See the
 [step-by-step setup guides](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
 for each client.
 
@@ -101,6 +103,24 @@ it read and reply through MCP or the [Chatway API](https://developers.chatway.ap
 Webhooks are available on all plans, including Free. Set them up in Chatway under
 **Settings → Developer Tools → Webhooks**.
 
+### Example: Automatically answer customer support conversations
+
+Combine Chatway webhooks with MCP to build an AI-powered customer support workflow that responds to incoming messages in real time.
+
+Here's how it works:
+
+1. **Customer sends a message:** A visitor sends a question through the Chatway website live chat widget.
+2. **Webhook triggers the workflow:** Chatway instantly sends a webhook notification to your AI agent or automation platform (such as n8n, Make, Zapier, or your own server).
+3. **AI agent retrieves context:** The agent uses Chatway MCP to read the conversation history, access customer information, and search your knowledge base for accurate answers.
+4. **AI agent responds automatically:** The agent generates a relevant response and, when configured and authorized, automatically sends it to the customer through Chatway, without requiring human intervention. Alternatively, the agent can prepare a draft for human review and approval.
+5. **Support team stays informed:** The entire conversation remains accessible in the Chatway shared inbox and mobile apps for iOS and Android. Human agents can take over whenever needed.
+
+**Fully automated customer support:** With Chatway webhooks and MCP, you can connect external AI agents to automatically handle incoming customer messages, answer questions, and manage support conversations 24/7.
+
+**Note:** MCP provides access to Chatway's tools and data, while webhooks notify your automation when events occur. Automatic responses require an external AI agent or workflow runner configured to process incoming events and execute MCP actions. MCP alone does not continuously monitor conversations.
+
+[Learn more about Chatway webhooks](https://developers.chatway.app/webhooks/guides.webhooks_overview) | [Explore Chatway MCP](https://developers.chatway.app/mcp/guides.mcp_overview)
+
 ## Example prompts
 
 - "Summarize today's unresolved support conversations."
@@ -113,6 +133,38 @@ Webhooks are available on all plans, including Free. Set them up in Chatway unde
 - "Tag this visitor as `vip` and resolve the conversation."
 
 ## Client setup
+
+### ChatGPT
+
+Connect Chatway to ChatGPT to search customer conversations, manage support tickets, access contacts, and work with your knowledge base directly from ChatGPT.
+
+1. Open [ChatGPT](https://chatgpt.com) on the web and go to **Settings → Apps**.
+2. Enable **Developer mode** (requires an eligible ChatGPT plan).
+3. Open **Browse Plugins**, click **+**, and create a custom MCP app named `Chatway`.
+4. Enter `https://mcp.chatway.app/mcp` as the MCP server URL and select **OAuth** authentication. Leave the Client ID and Client Secret empty.
+5. Sign in to Chatway and authorize the widgets, channels, and permissions you want ChatGPT to access.
+6. Start a conversation, enable the Chatway app, and ask: "Show my latest unresolved Chatway conversations."
+
+Available tools and write capabilities depend on your ChatGPT plan and workspace settings.
+
+[Full ChatGPT setup guide](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
+
+### Claude
+
+Connect Chatway to Claude to manage customer conversations, draft or send replies, assign support tickets, and search your knowledge base.
+
+1. Open [Claude](https://claude.ai) and go to **Customize → Connectors**.
+2. Click **+ Add → Add custom connector**.
+3. Enter `Chatway` as the name and paste `https://mcp.chatway.app/mcp` as the remote MCP server URL.
+4. Follow the connector setup flow, using automatic OAuth registration when prompted. No API key or manually created client credentials are required.
+5. Click **Connect**, sign in to Chatway, and authorize the widgets, channels, and permissions Claude can access.
+6. Ask Claude: "Summarize my latest Chatway support conversations."
+
+For Claude Team or Enterprise, an organization owner may need to add the connector first. The connection also works with Claude Desktop and other supported Claude clients.
+
+**Claude Code:** Run `claude mcp add --transport http --scope user chatway "https://mcp.chatway.app/mcp"`, then authenticate using `/mcp`.
+
+[Full Claude setup guide](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
 
 ### Gemini CLI
 
@@ -210,7 +262,7 @@ connection fails with HTTP `400`.
 ### Other clients
 
 Add `https://mcp.chatway.app/mcp` as a remote MCP server using the Streamable HTTP transport and
-complete the Chatway sign-in. Client-specific steps for Claude, ChatGPT, and others are in the
+complete the Chatway sign-in. Client-specific steps for Codex, Grok, and others are in the
 [setup guides](https://developers.chatway.app/mcp/guides.mcp_connect_clients).
 
 ## Troubleshooting
