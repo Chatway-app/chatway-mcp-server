@@ -71,10 +71,11 @@ automation, knowledge base, and mobile apps for iOS and Android.
 | Cursor | [Install the plugin](#cursor) |
 | GitHub Copilot (VS Code) | [Add the server](#github-copilot-vs-code) |
 | Cline | [Add the server](#cline) |
+| goose | [Add the extension](#goose) |
 
 **Works with any client that supports remote MCP servers with OAuth**
 
-Codex, Grok, Devin, Goose, OpenCode, and others. See the
+Codex, Grok, Devin, OpenCode, and others. See the
 [step-by-step setup guides](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
 for each client.
 
@@ -318,6 +319,24 @@ Chatway when prompted. Or add this to Cline's MCP settings JSON:
 
 `"type": "streamableHttp"` is required. Without it, Cline uses the legacy SSE transport and the
 connection fails with HTTP `400`.
+
+### goose
+
+**goose Desktop:** open **Extensions → Add custom extension**, enter `Chatway` as the name, choose
+**Streamable HTTP**, paste `https://mcp.chatway.app/mcp` as the endpoint, and click **Add**. A
+browser window opens so you can sign in to Chatway and choose what goose can access.
+
+Or paste this install link into your browser to add it in one step:
+
+```
+goose://extension?type=streamable_http&url=https%3A%2F%2Fmcp.chatway.app%2Fmcp&id=chatway&name=Chatway&description=Manage%20Chatway%20live%20chat%20conversations%2C%20contacts%2C%20and%20knowledge%20base
+```
+
+**goose CLI:** run `goose configure`, choose **Add Extension → Remote Extension (Streamable HTTP)**,
+enter `chatway` as the name and `https://mcp.chatway.app/mcp` as the endpoint. Leave the request
+headers empty: goose opens the Chatway sign-in in your browser the first time it connects.
+
+Then try: "List my 5 most recent unresolved Chatway conversations."
 
 ### Other clients
 
