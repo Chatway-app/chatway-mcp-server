@@ -92,6 +92,62 @@ for each client.
 See the [tool reference](https://developers.chatway.app/mcp/guides.mcp_tool_reference) for
 every tool and its parameters.
 
+## Agent Skills: Ready-to-use AI Customer Support Workflows
+
+Make your AI agents more powerful with **Chatway Agent Skills**, ready-to-use workflows that help ChatGPT, Claude, Cursor, Codex, and other compatible AI agents manage customer support through Chatway.
+
+While the [Chatway MCP Server](https://mcp.chatway.app/mcp) gives AI agents access to your customer conversations, contacts, and support tools, **Agent Skills teach them how to use those tools to complete specific customer support tasks.**
+
+### Available Agent Skills
+
+| Skill | What it does |
+|---|---|
+| **Support Triage** | Review unresolved conversations, identify customers waiting for replies, and prioritize urgent support requests. |
+| **AI Reply Assistant** | Draft accurate customer support responses using conversation history and your knowledge base. Send replies with your approval. |
+| **Smart Routing** | Identify conversations requiring human attention, recommend the right agents, and assist with assignments and handoffs. |
+| **Customer Context** | Retrieve customer conversation history, identify previous issues, and summarize important details before responding. |
+| **Support Insights** | Analyze support conversations, identify recurring customer issues, and discover opportunities to improve your knowledge base and support workflows. |
+
+### Install Chatway Agent Skills
+
+Install the skills directly from the official Chatway GitHub repository:
+
+```bash
+npx skills add Chatway-app/chatway-mcp-server
+```
+
+Or install a specific skill:
+
+```bash
+npx skills add Chatway-app/chatway-mcp-server --skill chatway-support-triage
+```
+
+Then connect your AI agent to the Chatway MCP server:
+
+`https://mcp.chatway.app/mcp`
+
+[View Chatway MCP setup guides](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
+
+### Example Prompts
+
+Once installed, ask your AI agent:
+
+- "Review my unresolved Chatway conversations and prioritize the ones needing attention."
+- "Draft responses for customers waiting for a reply, but don't send them yet."
+- "Find conversations that require human support and recommend who should handle them."
+- "Summarize this customer's previous conversations and outstanding issues."
+- "Analyze this week's support conversations and identify the most common customer problems."
+
+**Why use Chatway Agent Skills?**
+
+- **Save time:** Turn complex customer support workflows into simple natural-language requests.
+- **Get better AI responses:** Help agents follow structured workflows using actual conversation history and knowledge-base content.
+- **Keep humans in control:** Review proposed responses and approve sensitive actions.
+- **Work with your favorite AI agents:** Use compatible Agent Skills clients alongside Chatway MCP.
+- **Start for free:** Chatway MCP is available on all plans, including Free. Some capabilities require a paid plan.
+
+[Explore Chatway Agent Skills](https://github.com/Chatway-app/chatway-mcp-server/tree/main/skills) | [Create a Free Chatway Account](https://go.chatway.app/register)
+
 ## Real-time events with webhooks
 
 MCP lets your agent act in Chatway when you ask it to. [Chatway webhooks](https://developers.chatway.app/webhooks/guides.webhooks_overview)
