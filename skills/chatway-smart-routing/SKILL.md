@@ -1,6 +1,6 @@
 ---
 name: chatway-smart-routing
-description: Route and escalate Chatway customer support conversations to human teammates. Use when asked to find chats requiring handoff, recommend an agent, assign an inbox conversation, or prepare internal escalation notes.
+description: Route and escalate Chatway customer support conversations to human agents. Find chats that need a human handoff, recommend the right teammate, assign conversations, and write internal escalation notes. Use for support escalations, live chat handoffs, ticket assignment, and helpdesk routing.
 license: MIT
 metadata:
   author: Chatway
