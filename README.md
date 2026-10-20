@@ -94,6 +94,8 @@ every tool and its parameters.
 
 ## Agent Skills: Ready-to-use AI Customer Support Workflows
 
+[![Skills.sh Installs](https://skills.sh/b/Chatway-app/chatway-mcp-server)](https://skills.sh/Chatway-app/chatway-mcp-server)
+
 Make your AI agents more powerful with **Chatway Agent Skills**, ready-to-use workflows that help ChatGPT, Claude, Cursor, Codex, and other compatible AI agents manage customer support through Chatway.
 
 While the [Chatway MCP Server](https://mcp.chatway.app/mcp) gives AI agents access to your customer conversations, contacts, and support tools, **Agent Skills teach them how to use those tools to complete specific customer support tasks.**
