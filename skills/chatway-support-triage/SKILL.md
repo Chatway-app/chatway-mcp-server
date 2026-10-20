@@ -9,7 +9,14 @@ metadata:
 
 # Chatway Support Triage
 
-Help support teams evaluate and prioritize unresolved conversations without modifying the inbox by default.
+Review unresolved customer support conversations, identify customers waiting for a response, and prioritize urgent issues using your AI agent and Chatway. Read-only unless you approve changes.
+
+## Get started
+
+This skill works through the Chatway MCP server, so your AI agent needs an authorized Chatway connection.
+
+1. [Create a free Chatway account](https://go.chatway.app/register). Chatway MCP is available on all plans, including Free.
+2. [Connect Chatway to your AI agent](https://developers.chatway.app/mcp/guides.mcp_connect_clients) using `https://mcp.chatway.app/mcp`, and choose which inboxes and permissions to share.
 
 ## Workflow
 

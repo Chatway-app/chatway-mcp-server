@@ -9,7 +9,14 @@ metadata:
 
 # Chatway Smart Routing
 
-Recommend the right human follow-up for conversations that AI or the current support queue should not handle alone.
+Identify customer conversations requiring human attention, recommend the right support agents, and streamline escalations and handoffs through Chatway.
+
+## Get started
+
+This skill works through the Chatway MCP server, so your AI agent needs an authorized Chatway connection.
+
+1. [Create a free Chatway account](https://go.chatway.app/register). Chatway MCP is available on all plans, including Free.
+2. [Connect Chatway to your AI agent](https://developers.chatway.app/mcp/guides.mcp_connect_clients) using `https://mcp.chatway.app/mcp`, and choose which inboxes and permissions to share.
 
 ## Workflow
 

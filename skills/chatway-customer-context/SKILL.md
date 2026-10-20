@@ -9,7 +9,14 @@ metadata:
 
 # Chatway Customer Context
 
-Build a concise, evidence-based customer history from the Chatway records the connection can access.
+Understand your customers better with AI-powered summaries of previous conversations, recurring issues, and important support history from Chatway.
+
+## Get started
+
+This skill works through the Chatway MCP server, so your AI agent needs an authorized Chatway connection.
+
+1. [Create a free Chatway account](https://go.chatway.app/register). Chatway MCP is available on all plans, including Free.
+2. [Connect Chatway to your AI agent](https://developers.chatway.app/mcp/guides.mcp_connect_clients) using `https://mcp.chatway.app/mcp`, and choose which inboxes and permissions to share.
 
 ## Workflow
 
