@@ -102,11 +102,11 @@ While the [Chatway MCP Server](https://mcp.chatway.app/mcp) gives AI agents acce
 
 | Skill | What it does |
 |---|---|
-| **Support Triage** | Review unresolved conversations, identify customers waiting for replies, and prioritize urgent support requests. |
-| **AI Reply Assistant** | Draft accurate customer support responses using conversation history and your knowledge base. Send replies with your approval. |
-| **Smart Routing** | Identify conversations requiring human attention, recommend the right agents, and assist with assignments and handoffs. |
-| **Customer Context** | Retrieve customer conversation history, identify previous issues, and summarize important details before responding. |
-| **Support Insights** | Analyze support conversations, identify recurring customer issues, and discover opportunities to improve your knowledge base and support workflows. |
+| [**Support Triage**](skills/chatway-support-triage/SKILL.md) | Review unresolved conversations, identify customers waiting for replies, and prioritize urgent support requests. |
+| [**AI Reply Assistant**](skills/chatway-ai-reply-assistant/SKILL.md) | Draft accurate customer support responses using conversation history and your knowledge base. Send replies with your approval. |
+| [**Smart Routing**](skills/chatway-smart-routing/SKILL.md) | Identify conversations requiring human attention, recommend the right agents, and assist with assignments and handoffs. |
+| [**Customer Context**](skills/chatway-customer-context/SKILL.md) | Retrieve customer conversation history, identify previous issues, and summarize important details before responding. |
+| [**Support Insights**](skills/chatway-support-insights/SKILL.md) | Analyze support conversations, identify recurring customer issues, and discover opportunities to improve your knowledge base and support workflows. |
 
 ### Install Chatway Agent Skills
 
@@ -127,6 +127,8 @@ Then connect your AI agent to the Chatway MCP server:
 `https://mcp.chatway.app/mcp`
 
 [View Chatway MCP setup guides](https://developers.chatway.app/mcp/guides.mcp_connect_clients)
+
+Agent Skills and MCP connections are separate. Your AI client must support installing or loading Agent Skills, and you must separately authorize the Chatway MCP connection. Skill availability and installation methods vary by client.
 
 ### Example Prompts
 
