@@ -18,8 +18,9 @@ Recommend the right human follow-up for conversations that AI or the current sup
 3. Use `list-agents` to discover eligible team members if the relevant permission exposes it. The roster includes `status` and `online_status`, but these do not establish schedule, workload, SLA, or expertise. Do not invent a team's routing rules.
 4. Suggest assignment based on user-supplied ownership rules and verified roster information. If several agents match, present options and ask which to use. When no rules are available, recommend a human review instead of guessing the best agent.
 5. Prepare a concise private escalation summary: issue, customer goal, actions attempted, last unanswered question, risk/urgency, and suggested next step. Do not unnecessarily include sensitive contact information.
-6. Show proposed actions and get explicit authorization individually: `add-note` to record the summary, `assign-conversation` to assign an agent, or `handoff-to-human` to trigger Chatway's built-in human handover.
-7. Respect required `assign-conversation` confirmation challenges (`confirmation_required` + token). For `handoff-to-human`, note that external AI sending can be blocked until handoff is cleared. Do not claim a handoff or assignment occurred until the tool confirms it.
+6. Before using `assign-conversation`, call `get-conversation` and check `assigned_agents` to see whether the selected agent is already assigned. The assignment tool toggles an agent's assignment state, so calling it for an already assigned agent can unassign them. Never invoke it blindly or assume it is an assign-only operation. For bulk requests, check every conversation and leave out those where the agent is already assigned.
+7. Show proposed actions and get explicit authorization individually: `add-note` to record the summary, `assign-conversation` to assign an agent, or `handoff-to-human` to trigger Chatway's built-in human handover.
+8. Respect required `assign-conversation` confirmation challenges (`confirmation_required` + token). For `handoff-to-human`, note that external AI sending can be blocked until handoff is cleared. Do not claim a handoff or assignment occurred until the tool confirms it.
 
 ## Routing output
 

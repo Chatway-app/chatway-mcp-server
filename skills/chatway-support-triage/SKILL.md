@@ -19,7 +19,7 @@ Help support teams evaluate and prioritize unresolved conversations without modi
 4. Classify each conversation as: **reply needed**, **waiting on customer**, **no response needed / ready for closure**, **human specialist needed**, or **insufficient context**. Distinguish unresolved status from whether a reply is due.
 5. Assign urgency (high/medium/low) with evidence: explicit outage, payment blocker, deadline, repeat follow-up, question awaiting answer; do not infer SLAs unless provided. Use `search-knowledge-base` only when determining if a documented answer exists.
 6. Return counts by category, denominators, priority-ranked list with conversation IDs and short reasons, and any missing context. Clearly identify whether numbers describe the whole accessible queue or a sample.
-7. Offer specific *proposed* next actions. Only if separately approved, use appropriate tools such as `add-note`, `add-tag`, `assign-conversation`, or `resolve-conversation`, subject to permissions and server confirmation.
+7. Offer specific *proposed* next actions. Only if separately approved, use appropriate tools such as `add-note`, `add-tag`, `assign-conversation`, or `resolve-conversation`, subject to permissions and server confirmation. `assign-conversation` toggles assignment, so check `assigned_agents` with `get-conversation` first; calling it for an already assigned agent unassigns them.
 
 ## Suggested output
 
