@@ -1,6 +1,6 @@
 ---
 name: chatway-ai-reply-assistant
-description: Draft and send customer support replies in Chatway grounded in conversation history and the knowledge base. Use when asked to answer chats, prepare replies, or respond to a customer with reliable product guidance.
+description: Draft and send customer support replies in Chatway, grounded in the conversation history and your help center or knowledge base. Use when asked to answer live chat conversations or support tickets, prepare reply drafts, respond to a customer, or write accurate answers to customer questions. Sends only with approval.
 license: MIT
 metadata:
   author: Chatway

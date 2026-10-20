@@ -1,6 +1,6 @@
 ---
 name: chatway-customer-context
-description: Research a customer support contact using authorized Chatway conversations and profile data. Use when asked for customer history, prior requests, repeat issues, account context, or a handoff brief before replying.
+description: Look up a customer's support history in Chatway. Summarize past conversations, previous issues, what the customer already tried, and open requests, using contact and visitor profile data. Use when asked for customer history, repeat issues, account context, or a handoff brief before replying.
 license: MIT
 metadata:
   author: Chatway

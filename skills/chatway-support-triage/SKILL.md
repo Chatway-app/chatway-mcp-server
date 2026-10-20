@@ -1,6 +1,6 @@
 ---
 name: chatway-support-triage
-description: Triage customer support conversations in Chatway. Use when asked to review unresolved chats, identify unanswered customers, prioritize an inbox, or decide which conversations need human attention.
+description: Triage customer support conversations and live chat tickets in Chatway. Review the unresolved inbox, find customers waiting for a reply, prioritize urgent requests, and flag chats that need a human agent. Use when asked to review unresolved chats, reduce a support backlog, prioritize a helpdesk queue, or decide which conversations need attention.
 license: MIT
 metadata:
   author: Chatway
