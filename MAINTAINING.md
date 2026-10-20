@@ -11,6 +11,7 @@ gemini-extension.json                Gemini CLI extension manifest (must stay at
 GEMINI.md                            Context loaded by Gemini CLI for the extension
 .cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
 rules/chatway.mdc                    Cursor rule loaded by the plugin
+skills/                              Agent Skills (one folder per skill, each with a SKILL.md)
 llms-install.md                      Setup guide for AI agents such as Cline
 assets/                              Chatway logos used by listings
 .github/workflows/validate.yml       Validates server.json, gemini-extension.json and the Cursor plugin on pull requests
