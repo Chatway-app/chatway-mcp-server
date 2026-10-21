@@ -1,7 +1,7 @@
 {
   "name": "chatway",
-  "version": "1.1.0",
-  "description": "Chatway Live Chat for Grok Build via the hosted Chatway MCP server at mcp.chatway.app. Triage and search customer support conversations, read visitor and contact details, search your knowledge base, draft and send replies, add private notes, and assign or hand off chats to your team. Sign in with your Chatway account on first connect. Pair it with Chatway webhooks to trigger agents on new messages in real time.",
+  "version": "1.2.0",
+  "description": "Connect Chatway Live Chat to Grok to manage customer support with AI. Search conversations, understand customer history, access your knowledge base, draft and send replies, and route chats to human agents. Manage website live chat, WhatsApp, Instagram, Facebook Messenger, and email from one shared inbox. Includes 5 AI skills and an MCP server, and works with Chatway webhooks for real-time automation. Free plan available.",
   "author": {
     "name": "Chatway",
     "url": "https://chatway.app"
@@ -12,9 +12,19 @@
   "keywords": [
     "chatway",
     "chatway live chat",
-    "chatway inbox",
-    "chatway conversations",
-    "chatway mcp"
+    "customer support",
+    "AI customer service",
+    "AI support agent",
+    "live chat",
+    "chatbot",
+    "help desk",
+    "shared inbox",
+    "customer conversations",
+    "WhatsApp support",
+    "customer service automation",
+    "MCP server",
+    "Grok integration",
+    "human handoff"
   ],
   "logo": "assets/chatway-logo.svg"
 }

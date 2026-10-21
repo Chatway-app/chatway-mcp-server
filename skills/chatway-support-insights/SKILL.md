@@ -1,6 +1,6 @@
 ---
 name: chatway-support-insights
-description: Analyze Chatway customer support conversations to find recurring issues, common customer questions, and knowledge base gaps. Use for weekly support inbox reviews, live chat trend analysis, support quality audits, FAQ recommendations, and deciding what to add to your help center.
+description: Analyze Chatway customer conversations to identify recurring issues, support trends, and knowledge gaps. Use for weekly support inbox reviews, live chat trend analysis, support quality audits, FAQ recommendations, and deciding what to add to your help center.
 license: MIT
 metadata:
   author: Chatway
