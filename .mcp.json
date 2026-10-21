@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "chatway": {
+      "type": "http",
+      "url": "https://mcp.chatway.app/mcp"
+    }
+  }
+}

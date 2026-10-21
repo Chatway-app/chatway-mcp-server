@@ -11,6 +11,8 @@ gemini-extension.json                Gemini CLI extension manifest (must stay at
 GEMINI.md                            Context loaded by Gemini CLI for the extension
 .cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
 rules/chatway.mdc                    Cursor rule loaded by the plugin
+.grok-plugin/plugin.json             Grok Build plugin manifest
+.mcp.json                            MCP server config loaded by the Grok Build plugin
 skills/                              Agent Skills (one folder per skill, each with a SKILL.md)
 llms-install.md                      Setup guide for AI agents such as Cline
 assets/                              Chatway logos used by listings
@@ -74,6 +76,22 @@ docs or the publisher dashboard after merging changes to `main`.
 
 To test locally, copy this folder (not a symlink) to `~/.cursor/plugins/local/chatway`, then run
 **Developer: Reload Window** in Cursor.
+
+## Grok Build plugin updates
+
+The [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace) lists this repository
+as a remote source pinned to a commit SHA, so nothing is vendored there. The plugin is made of
+`.grok-plugin/plugin.json`, `.mcp.json`, and `skills/`.
+
+xAI's bump workflow advances the pinned SHA when `version` in `.grok-plugin/plugin.json` changes,
+so bump it for user-visible changes after merging to `main`. Never force-push `main`: the pinned
+commit must stay reachable or the marketplace build fails.
+
+To test locally before merging:
+
+```bash
+grok --plugin-dir .
+```
 
 ## Verify
 
