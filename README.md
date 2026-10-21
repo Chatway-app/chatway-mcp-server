@@ -72,6 +72,7 @@ automation, knowledge base, and mobile apps for iOS and Android.
 | GitHub Copilot (VS Code) | [Add the server](#github-copilot-vs-code) |
 | Cline | [Add the server](#cline) |
 | goose | [Add the extension](#goose) |
+| Grok Build | [Install the plugin](#grok-build) |
 
 **Works with any client that supports remote MCP servers with OAuth**
 
@@ -337,6 +338,23 @@ enter `chatway` as the name and `https://mcp.chatway.app/mcp` as the endpoint. L
 headers empty: goose opens the Chatway sign-in in your browser the first time it connects.
 
 Then try: "List my 5 most recent unresolved Chatway conversations."
+
+### Grok Build
+
+This repository is a Grok Build plugin: it bundles the Chatway MCP server (`.mcp.json`) and the
+[Agent Skills](#agent-skills-ready-to-use-ai-customer-support-workflows) in `skills/`.
+
+Open `/plugins` in Grok Build, go to the **Marketplace** tab, and install **chatway**. Then open
+`/mcps`, select `chatway`, and press `i` to sign in to Chatway in your browser.
+
+To add only the MCP server:
+
+```bash
+grok mcp add --transport http chatway https://mcp.chatway.app/mcp
+```
+
+Grok opens the Chatway sign-in the first time it uses the server and stores the token in
+`~/.grok/mcp_credentials.json`. Then try: "List my 5 most recent unresolved Chatway conversations."
 
 ### Other clients
 

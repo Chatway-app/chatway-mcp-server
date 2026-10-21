@@ -81,3 +81,35 @@ jobs:
             head -1 "$rule" | grep -q '^---$' || { echo "$rule is missing frontmatter"; exit 1; }
             grep -q '^description:' "$rule" || { echo "$rule is missing a description"; exit 1; }
           done
+
+  grok:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Validate .grok-plugin/plugin.json and .mcp.json
+        run: |
+          MANIFEST=.grok-plugin/plugin.json
+          jq -e '
+            (.name | test("^[a-z0-9]([a-z0-9-]*[a-z0-9])?$")) and
+            (.version | type == "string" and length > 0) and
+            (.description | type == "string" and length > 0)
+          ' "$MANIFEST" > /dev/null \
+            || { echo "$MANIFEST is missing required fields"; exit 1; }
+
+          jq -e '.mcpServers.chatway.type == "http" and .mcpServers.chatway.url == "https://mcp.chatway.app/mcp"' .mcp.json > /dev/null \
+            || { echo ".mcp.json is missing the production endpoint"; exit 1; }
+
+          LOGO="$(jq -r '.logo // empty' "$MANIFEST")"
+          case "$LOGO" in /*|*..*) echo "logo path must be relative without .."; exit 1;; esac
+          if [ -n "$LOGO" ] && [ ! -f "$LOGO" ]; then echo "logo $LOGO does not exist"; exit 1; fi
+
+          for skill in skills/*/SKILL.md; do
+            NAME="$(sed -n 's/^name: //p' "$skill")"
+            [ "$NAME" = "$(basename "$(dirname "$skill")")" ] || { echo "$skill name does not match its folder"; exit 1; }
+            grep -q '^description: ' "$skill" || { echo "$skill is missing a description"; exit 1; }
+          done

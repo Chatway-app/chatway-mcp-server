@@ -1,0 +1,20 @@
+{
+  "name": "chatway",
+  "version": "1.1.0",
+  "description": "Chatway Live Chat for Grok Build via the hosted Chatway MCP server at mcp.chatway.app. Triage and search customer support conversations, read visitor and contact details, search your knowledge base, draft and send replies, add private notes, and assign or hand off chats to your team. Sign in with your Chatway account on first connect. Pair it with Chatway webhooks to trigger agents on new messages in real time.",
+  "author": {
+    "name": "Chatway",
+    "url": "https://chatway.app"
+  },
+  "homepage": "https://chatway.app",
+  "repository": "https://github.com/Chatway-app/chatway-mcp-server",
+  "license": "MIT",
+  "keywords": [
+    "chatway",
+    "chatway live chat",
+    "chatway inbox",
+    "chatway conversations",
+    "chatway mcp"
+  ],
+  "logo": "assets/chatway-logo.svg"
+}
