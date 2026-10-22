@@ -27,7 +27,7 @@ This skill works through the Chatway MCP server, so your AI agent needs an autho
 5. Draft a response in the customer's language and appropriate tone. Avoid overpromising, invented timelines, unverified policy exceptions, and repeating already answered questions. Include relevant steps when supported by retrieved content.
 6. Before any `send-message`, show the exact proposed reply, the target conversation, and any uncertainty. Request explicit approval to send unless an explicit current-task authorization already covers the action.
 7. Use `send-message` only when permitted and authorized. Confirm the message ID or tool-reported result; if blocked due to human handoff, do not circumvent it.
-8. Optionally propose a private `add-note` or `handoff-to-human` when unresolved; these require separate approval.
+8. Optionally propose a private `add-note` or, when a Chatway AI assistant is handling the conversation, `handoff-to-human`; these require separate approval.
 
 ## Bulk requests
 
