@@ -3,7 +3,7 @@
   "name": "io.github.Chatway-app/chatway",
   "title": "Chatway Live Chat",
   "description": "Connect ChatGPT, Claude & AI agents to Chatway live chat to reply to customers and manage tickets",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "websiteUrl": "https://chatway.app",
   "repository": {
     "url": "https://github.com/Chatway-app/chatway-mcp-server",
