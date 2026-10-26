@@ -1,0 +1,19 @@
+{
+  "name": "chatway",
+  "version": "1.2.0",
+  "description": "Manage Chatway live chat conversations, reply to customers, triage your support inbox, and search your knowledge base from Claude.",
+  "author": {
+    "name": "Chatway",
+    "url": "https://chatway.app"
+  },
+  "homepage": "https://chatway.app",
+  "repository": "https://github.com/Chatway-app/chatway-mcp-server",
+  "license": "MIT",
+  "keywords": [
+    "chatway",
+    "live-chat",
+    "customer-support",
+    "helpdesk",
+    "inbox"
+  ]
+}
