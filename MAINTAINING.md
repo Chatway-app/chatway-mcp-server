@@ -12,7 +12,8 @@ GEMINI.md                            Context loaded by Gemini CLI for the extens
 .cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
 rules/chatway.mdc                    Cursor rule loaded by the plugin
 .grok-plugin/plugin.json             Grok Build plugin manifest
-.mcp.json                            MCP server config loaded by the Grok Build plugin
+.claude-plugin/plugin.json           Claude plugin manifest
+.mcp.json                            MCP server config loaded by the Grok Build and Claude plugins
 skills/                              Agent Skills (one folder per skill, each with a SKILL.md)
 llms-install.md                      Setup guide for AI agents such as Cline
 assets/                              Chatway logos used by listings
@@ -91,6 +92,22 @@ To test locally before merging:
 
 ```bash
 grok --plugin-dir .
+```
+
+## Claude plugin updates
+
+The plugin is listed in the Claude plugin directory through the developer portal at
+[claude.ai/directory/manage](https://claude.ai/directory/manage). It is made of
+`.claude-plugin/plugin.json`, `.mcp.json`, and `skills/`, with the repository root as the plugin
+folder. The directory follows `main` and scans each new commit, so bump `version` in
+`.claude-plugin/plugin.json` for user-visible changes. See the
+[pre-submission checklist](https://claude.com/docs/plugins/pre-submission-checklist) for what the
+directory checks.
+
+To test locally before merging:
+
+```bash
+claude plugin validate .
 ```
 
 ## Verify
