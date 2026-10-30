@@ -112,6 +112,7 @@ While the [Chatway MCP Server](https://mcp.chatway.app/mcp) gives AI agents acce
 | [**Smart Routing**](skills/chatway-smart-routing/SKILL.md) | Identify conversations requiring human attention, recommend the right agents, and assist with assignments and handoffs. |
 | [**Customer Context**](skills/chatway-customer-context/SKILL.md) | Retrieve customer conversation history, identify previous issues, and summarize important details before responding. |
 | [**Support Insights**](skills/chatway-support-insights/SKILL.md) | Analyze support conversations, identify recurring customer issues, and discover opportunities to improve your knowledge base and support workflows. |
+| [**Real-time Events**](skills/chatway-real-time-events/SKILL.md) | Subscribe to Chatway MCP Events and handle new conversations, visitor messages, assignments, and resolutions as they happen. |
 
 ### Install Chatway Agent Skills
 
@@ -165,6 +166,15 @@ it read and reply through MCP or the [Chatway API](https://developers.chatway.ap
 
 Webhooks are available on all plans, including Free. Set them up in Chatway under
 **Settings → Developer Tools → Webhooks**.
+
+### MCP Events
+
+Clients that support MCP Events (such as ChatGPT Work and OpenClaw) can subscribe to Chatway events
+through the MCP connection itself, with no separate webhook setup. Enable the **Receive real-time
+events** permission when you connect, then the agent subscribes with `events/subscribe` and
+receives signed callbacks for `conversation.created`, `message.received`, `agent.assigned`, and
+`conversation.resolved` in the inboxes you shared. Events contain IDs only; the agent reads the
+details through MCP tools. See the [Real-time Events skill](skills/chatway-real-time-events/SKILL.md).
 
 ### Example: Automatically answer customer support conversations
 
