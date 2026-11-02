@@ -84,8 +84,8 @@ Interpret `get-installation-status`:
 
 | `status` | Meaning | What to say |
 |---|---|---|
-| `widget_operational` | Visitors have started Chatway conversations on this domain, or an official app is installed for it | Chatway is live and verified |
-| `script_detected` | This account's script is in the home page HTML | Published; open the site to see the widget, a first conversation confirms it end to end |
+| `widget_operational` | Visitors have started Chatway conversations on this domain in the last 7 days | Chatway is live and verified |
+| `script_detected` | This account's script is in the home page HTML, or a Chatway store app is installed for the domain (`detected_by: marketplace`) | Published; open the site to see the widget, a first conversation confirms it end to end |
 | `unverified_spa` | The page builds its HTML in the browser, so the script can't be seen from the server | Can't verify from the server; open the site, start a test chat, then check again |
 | `different_account_script` | Another Chatway account's script is on the page | Ask which account should be used |
 | `not_detected` | The script isn't in the home page HTML | Not published yet, not deployed, or on other pages only |
