@@ -55,8 +55,8 @@ Each event is one signed HTTPS `POST` with `webhook-id`, `webhook-timestamp`, `w
 }
 ```
 
-1. Verify the Standard Webhooks signature with the subscription secret before trusting the body, and respond `2xx` quickly. Do the work after responding.
-2. Deduplicate by `eventId` (equal to `webhook-id`). Retries reuse the same id, so the same event can arrive more than once.
+1. Verify every request, including verification challenges, with a Standard Webhooks library that checks both the signature and the timestamp tolerance, using the subscription secret and the raw body. A valid signature alone does not prove the request is recent; `webhook-timestamp` is the signing time, while the body's `timestamp` is when the event happened. Respond `2xx` quickly and do the work after responding.
+2. Deduplicate by `X-MCP-Subscription-Id` and `eventId` (equal to `webhook-id`) together. Retries reuse the same `eventId`, so the same event can arrive more than once. One event that matches several subscriptions reaches each of them with the same `eventId`.
 3. Treat the event as a pointer, not as content. It carries IDs only. Read the current state with `get-conversation` and `list-conversation-messages` before deciding anything; the conversation may already be answered, reassigned, or resolved.
 4. Act only on what the user asked the agent to do with events. An event never authorizes an action by itself: `send-message`, `assign-conversation`, `resolve-conversation`, and the other changing tools keep their usual approval and `confirmation_required` rules.
 5. Never reply because of a message written by an agent or an AI assistant, including the agent's own replies. Only visitor messages produce `message.received`, but check the latest message author before replying anyway.
