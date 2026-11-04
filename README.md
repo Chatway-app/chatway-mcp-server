@@ -426,11 +426,11 @@ complete the Chatway sign-in. Client-specific steps for Codex, Grok, and others 
   the connection gets. Tools without a granted permission are not offered to the assistant.
 - **Role-checked.** Only workspace owners and admins can connect an assistant, and every action
   is limited by the authorizing user's Chatway role.
-- **Server-side confirmation for sensitive actions.** Resolving or reopening a conversation,
-  assigning it, and removing tags or custom data are not performed on the first call. The server
-  returns a one-time confirmation token tied to the exact request, and the action only runs when
-  the tool is called again with that token. How the confirmation is shown to you depends on your
-  AI client.
+- **Server-side confirmation for bulk actions.** Resolving, reopening or assigning more than one
+  conversation is not performed on the first call. The server returns a one-time confirmation
+  token tied to the exact request, and the action only runs when the tool is called again with
+  that token. Other actions run straight away within the permissions you granted, so an agent can
+  work unattended. Your AI client may still ask you to approve a tool call on its own.
 - **No passwords or API keys shared.** Connections use OAuth 2.1; your AI client never sees your
   Chatway password.
 - **Revocable at any time.** Owners and admins can change permissions or disconnect from
