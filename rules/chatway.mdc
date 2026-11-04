@@ -39,3 +39,16 @@ knowledge base.
 - `assign-conversation`, `resolve-conversation`, and `unresolve-conversation` accept several
   conversation IDs. For bulk changes, pass all IDs in a single call instead of looping. Other tools
   work on one conversation or contact at a time.
+
+## Real-time events
+
+- Clients that support MCP Events can call `events/subscribe` to receive `conversation.created`,
+  `message.received`, `agent.assigned`, and `conversation.resolved` for the authorized inboxes.
+  This needs the **Receive real-time events** permission, plus **Read conversation messages** for
+  `message.received` and **Read conversations** for the other events. Renew before `refreshBefore`
+  (at most 24 hours).
+- Events contain IDs only. Read the current state with `get-conversation` and
+  `list-conversation-messages` before acting; the same event can arrive more than once, so
+  deduplicate by subscription and `eventId` together.
+- Receiving an event never authorizes an action: every confirmation rule above still applies.
+  Never reply because of a message written by an agent or an AI assistant.
