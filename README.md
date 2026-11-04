@@ -170,15 +170,6 @@ it read and reply through MCP or the [Chatway API](https://developers.chatway.ap
 Webhooks are available on all plans, including Free. Set them up in Chatway under
 **Settings → Developer Tools → Webhooks**.
 
-### MCP Events
-
-Clients that support MCP Events (such as ChatGPT Work and OpenClaw) can subscribe to Chatway events
-through the MCP connection itself, with no separate webhook setup. Enable the **Receive real-time
-events** permission when you connect, then the agent subscribes with `events/subscribe` and
-receives signed callbacks for `conversation.created`, `message.received`, `agent.assigned`, and
-`conversation.resolved` in the inboxes you shared. Events contain IDs only; the agent reads the
-details through MCP tools. See the [Real-time Events skill](skills/chatway-real-time-events/SKILL.md).
-
 ### Example: Automatically answer customer support conversations
 
 Combine Chatway webhooks with MCP to build an AI-powered customer support workflow that responds to incoming messages in real time.
@@ -196,6 +187,16 @@ Here's how it works:
 **Note:** MCP provides access to Chatway's tools and data, while webhooks notify your automation when events occur. Automatic responses require an external AI agent or workflow runner configured to process incoming events and execute MCP actions. MCP alone does not continuously monitor conversations.
 
 [Learn more about Chatway webhooks](https://developers.chatway.app/webhooks/guides.webhooks_overview) | [Explore Chatway MCP](https://developers.chatway.app/mcp/guides.mcp_overview)
+
+## Real-time events with MCP Events
+
+Clients that support MCP Events (such as ChatGPT Work and OpenClaw) can subscribe to Chatway events
+through the MCP connection itself, with no separate webhook setup. When you connect, enable
+**Receive real-time events** along with **Read conversations** and **Read conversation messages**.
+The agent then subscribes with `events/subscribe` and receives signed callbacks for
+`conversation.created`, `message.received`, `agent.assigned`, and `conversation.resolved` in the
+widgets and channels you shared. Events contain IDs only; the agent reads the
+details through MCP tools. See the [Real-time Events skill](skills/chatway-real-time-events/SKILL.md).
 
 ## Example prompts
 
