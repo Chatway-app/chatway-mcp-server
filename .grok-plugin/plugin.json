@@ -1,6 +1,6 @@
 {
   "name": "chatway",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Connect Chatway Live Chat to Grok to manage customer support with AI. Search conversations, understand customer history, access your knowledge base, draft and send replies, and route chats to human agents. Manage website live chat, WhatsApp, Instagram, Facebook Messenger, and email from one shared inbox. Includes 6 AI skills and an MCP server, and works with Chatway webhooks for real-time automation. Free plan available.",
   "author": {
     "name": "Chatway",
