@@ -77,7 +77,7 @@ jobs:
           case "$LOGO" in /*|*..*) echo "logo path must be relative without .."; exit 1;; esac
           if [ -n "$LOGO" ] && [ ! -f "$LOGO" ]; then echo "logo $LOGO does not exist"; exit 1; fi
 
-          for rule in rules/*.mdc; do
+          for rule in rules/*.md; do
             head -1 "$rule" | grep -q '^---$' || { echo "$rule is missing frontmatter"; exit 1; }
             grep -q '^description:' "$rule" || { echo "$rule is missing a description"; exit 1; }
           done

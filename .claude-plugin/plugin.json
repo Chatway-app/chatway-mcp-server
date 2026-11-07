@@ -1,7 +1,7 @@
 {
   "name": "chatway",
   "displayName": "Chatway Live Chat",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Manage Chatway live chat conversations, reply to customers, triage your support inbox, and search your knowledge base from Claude.",
   "author": {
     "name": "Chatway",
