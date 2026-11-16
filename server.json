@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.Chatway-app/chatway",
-  "title": "Chatway Live Chat",
-  "description": "Connect ChatGPT, Claude & AI agents to Chatway live chat to reply to customers and manage tickets",
-  "version": "1.3.3",
+  "title": "Chatway: Omnichannel Customer Support",
+  "description": "Shared inbox for website live chat, WhatsApp Business, Facebook Messenger, Instagram DMs & email.",
+  "version": "1.3.4",
   "websiteUrl": "https://chatway.app",
   "repository": {
     "url": "https://github.com/Chatway-app/chatway-mcp-server",
