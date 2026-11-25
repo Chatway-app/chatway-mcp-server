@@ -10,7 +10,7 @@ server.json                          MCP Registry manifest
 gemini-extension.json                Gemini CLI extension manifest (must stay at the repo root)
 GEMINI.md                            Context loaded by Gemini CLI for the extension
 .cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
-rules/chatway.mdc                    Cursor rule loaded by the plugin
+rules/chatway.md                     Cursor rule loaded by the plugin
 .grok-plugin/plugin.json             Grok Build plugin manifest
 .claude-plugin/plugin.json           Claude plugin manifest
 .mcp.json                            MCP server config loaded by the Grok Build and Claude plugins
