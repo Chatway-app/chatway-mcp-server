@@ -1,0 +1,38 @@
+{
+  "id": "chatway",
+  "name": "Chatway Customer Support",
+  "description": "AI customer support for Chatway: answer customers, triage the live chat inbox, search the knowledge base, manage contacts, route conversations, and resolve issues.",
+  "version": "1.0.0",
+  "categories": [
+    "sales-marketing"
+  ],
+  "recommendedPrompts": [
+    "Review unresolved Chatway conversations, find answers in my knowledge base, and send replies after I approve them.",
+    "Answer the latest customer message, add an internal note, tag the contact, and assign it to the right agent.",
+    "Triage my Chatway inbox: answer customers, update contact data, and resolve completed conversations."
+  ],
+  "skills": [
+    "./skills"
+  ],
+  "mcpServers": {
+    "chatway": {
+      "url": "https://mcp.chatway.app/mcp",
+      "transport": "streamable-http",
+      "auth": "oauth",
+      "oauth": {
+        "identity": "shared"
+      },
+      "connectionTimeoutMs": 10000,
+      "requestTimeoutMs": 30000,
+      "supportsParallelToolCalls": false
+    }
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

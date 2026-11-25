@@ -1,0 +1,45 @@
+{
+  "name": "@chatway/chatway-customer-support",
+  "version": "1.0.0",
+  "description": "AI customer support for Chatway: answer customers, triage the live chat inbox, search the knowledge base, manage contacts, route conversations, and resolve issues.",
+  "type": "module",
+  "homepage": "https://chatway.app",
+  "author": "Chatway",
+  "files": [
+    "assets",
+    "dist",
+    "skills",
+    "openclaw.plugin.json",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "openclaw": ">=2026.8.1"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.8.1",
+      "minGatewayVersion": "2026.8.1"
+    },
+    "build": {
+      "openclawVersion": "2026.11.2",
+      "pluginSdkVersion": "2026.11.2"
+    }
+  },
+  "keywords": [
+    "chatway",
+    "customer-support",
+    "customer-service",
+    "live-chat",
+    "helpdesk",
+    "shared-inbox",
+    "ai-support-agent",
+    "support-automation",
+    "knowledge-base",
+    "contact-management",
+    "conversation-management",
+    "openclaw-plugin"
+  ]
+}

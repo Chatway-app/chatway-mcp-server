@@ -16,6 +16,7 @@ rules/chatway.md                     Cursor rule loaded by the plugin
 .mcp.json                            MCP server config loaded by the Grok Build and Claude plugins
 skills/                              Agent Skills (one folder per skill, each with a SKILL.md)
 llms-install.md                      Setup guide for AI agents such as Cline
+openclaw/                            OpenClaw plugin published to ClawHub (own manifest, skills and dist)
 assets/                              Chatway logos used by listings
 .github/workflows/validate.yml       Validates server.json, gemini-extension.json and the Cursor plugin on pull requests
 .github/workflows/publish-mcp.yml    Publishes server.json to the MCP Registry on version tags
@@ -48,6 +49,21 @@ Published versions are immutable, so every change needs a new version.
 Never delete or move a published tag: the registry's icon URLs point to files at that tag.
 
 To update the pinned `mcp-publisher` version, change `MCP_PUBLISHER_VERSION` in both workflows.
+
+## OpenClaw plugin (ClawHub)
+
+The `openclaw/` folder is a self-contained OpenClaw package. ClawHub only packages that folder, so it
+keeps its own copy of the skills rather than using the root `skills/` folder.
+
+To publish a version on [clawhub.ai/plugins](https://clawhub.ai/plugins):
+
+1. Bump `version` in both `openclaw/package.json` and `openclaw/openclaw.plugin.json`, and merge to
+   `main`.
+2. In the ClawHub publish form, enter `Chatway-app/chatway-mcp-server`, the full commit SHA of that
+   merge and package path `openclaw`.
+
+Do not tag OpenClaw releases `v*`: those tags run the MCP Registry workflow, which requires the tag
+to match `server.json`. Use `openclaw-v<version>` if you want a tag.
 
 ## Gemini CLI extension updates
 
