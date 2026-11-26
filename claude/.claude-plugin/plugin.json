@@ -10,8 +10,6 @@
   "homepage": "https://chatway.app",
   "repository": "https://github.com/Chatway-app/chatway-mcp-server",
   "license": "MIT",
-  "privacyPolicyUrl": "https://chatway.app/privacy-policy",
-  "termsOfServiceUrl": "https://chatway.app/terms-of-service",
   "keywords": [
     "chatway",
     "live-chat",
