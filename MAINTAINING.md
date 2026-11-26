@@ -12,8 +12,9 @@ GEMINI.md                            Context loaded by Gemini CLI for the extens
 .cursor-plugin/plugin.json           Cursor plugin manifest (includes the MCP server)
 rules/chatway.md                     Cursor rule loaded by the plugin
 .grok-plugin/plugin.json             Grok Build plugin manifest
-.claude-plugin/plugin.json           Claude plugin manifest
-.mcp.json                            MCP server config loaded by the Grok Build and Claude plugins
+.claude-plugin/plugin.json           Claude plugin manifest for installs from the repository root
+.mcp.json                            MCP server config loaded by the Grok Build plugin and root Claude installs
+claude/                              Claude plugin submitted to the Claude plugin directory (own manifest, MCP config and skills)
 skills/                              Agent Skills (one folder per skill, each with a SKILL.md)
 llms-install.md                      Setup guide for AI agents such as Cline
 openclaw/                            OpenClaw plugin published to ClawHub (own manifest, skills and dist)
@@ -113,17 +114,23 @@ grok --plugin-dir .
 ## Claude plugin updates
 
 The plugin is listed in the Claude plugin directory through the developer portal at
-[claude.ai/directory/manage](https://claude.ai/directory/manage). It is made of
-`.claude-plugin/plugin.json`, `.mcp.json`, and `skills/`, with the repository root as the plugin
-folder. The directory follows `main` and scans each new commit, so bump `version` in
-`.claude-plugin/plugin.json` for user-visible changes. See the
+[claude.ai/directory/manage](https://claude.ai/directory/manage), submitted from the `claude/`
+folder. The directory only accepts Markdown, text, JSON, YAML and images from organizations that
+aren't Verified, so the repository root (which also holds the OpenClaw package and workflows)
+can't be the submitted folder. `claude/` is self-contained: `claude/.claude-plugin/plugin.json`,
+`claude/.mcp.json`, and its own copy of the skills in `claude/skills/`. Copy skill changes from the
+root `skills/` folder into `claude/skills/` as well. Only add Markdown, JSON, YAML or image files to
+`claude/`.
+
+The directory follows `main` and scans each new commit, so bump `version` in
+`claude/.claude-plugin/plugin.json` for user-visible changes. See the
 [pre-submission checklist](https://claude.com/docs/plugins/pre-submission-checklist) for what the
 directory checks.
 
 To test locally before merging:
 
 ```bash
-claude plugin validate .
+claude plugin validate claude
 ```
 
 ## Verify
